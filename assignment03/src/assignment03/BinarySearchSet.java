@@ -16,11 +16,13 @@ public class BinarySearchSet<E> implements SortedSet<E>, Iterator<E>{
 	
 	public BinarySearchSet(){
 		wayToCompare = (Comparator<? super E>)Comparator.naturalOrder();
-		data = (E[])new Object[8];
+		data = (E[])new Object[8]; // Creates the array of size 8 as initial size
 	}
+	
 	public BinarySearchSet(Comparator<? super E> comparator){
 		wayToCompare = comparator;
 	}
+	
 	@Override
 	public Comparator<? super E> comparator() {
 		return this.wayToCompare;
@@ -141,6 +143,10 @@ public class BinarySearchSet<E> implements SortedSet<E>, Iterator<E>{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	/**
+	 * Doubles the array size by its size by calling the addAll method
+	 */
 	public void doubleArrayCapacity(){
 		E[] dataCopy = data;
 		data = (E[])new Object[data.length*2];
